@@ -4,6 +4,11 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
+//Start models and services
+require('./models/User');
+require('./models/Article');
+require('./models/Comment');
+require('./services/passportLocal');
 
 //Custom files
 const config = require('./config/config');
@@ -15,7 +20,7 @@ app.use(bodyParser.json());
 app.use(
   cookieSession({
     maxAge: 30 * 24 * 60 * 60 * 1000,
-    keys: config.cookieKey
+    keys: [config.cookieKey]
   })
 );
 app.use(passport.initialize());

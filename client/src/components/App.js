@@ -6,9 +6,14 @@ import * as actions from '../actions';
 import Header from './Header';
 import SideBar from './SideBar';
 import PostList from './PostList';
+import Login from './admin/Login';
 
 
 class App extends Component {
+
+  componentDidMount(){
+    this.props.fetchUser();
+  }
 
   render() {
     return (
@@ -16,7 +21,7 @@ class App extends Component {
         <BrowserRouter>
           <div>
             <Header />
-            <SideBar />
+            <Route exact path="/login" component={Login}/>
             <Route exact path="/" component={PostList}/>
           </div>
         </BrowserRouter>
