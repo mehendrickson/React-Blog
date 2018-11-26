@@ -6,8 +6,8 @@ import * as actions from '../actions';
 import Header from './Header';
 import SideBar from './SideBar';
 import PostList from './PostList';
-import Login from './admin/Login';
-
+import AdminLanding from './admin/accounts/AdminLanding';
+import Register from './admin/accounts/Register';
 
 class App extends Component {
 
@@ -17,12 +17,19 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div>
         <BrowserRouter>
           <div>
             <Header />
-            <Route exact path="/login" component={Login}/>
-            <Route exact path="/" component={PostList}/>
+            <div className="row">
+              <div className="col s3">
+                <SideBar />
+              </div>
+              <div className="col s9">
+                <Route path="/console" component={AdminLanding}/>
+                <Route exact path="/" component={PostList}/>
+              </div>
+            </div>
           </div>
         </BrowserRouter>
       </div>

@@ -5,7 +5,9 @@ import { Link } from 'react-router-dom';
 class SideBar extends Component {
   render() {
     return (
-      <h2>SideBar</h2>
+      <div className="flex blue-grey lighten-2">
+
+      </div>
     );
   }
 }

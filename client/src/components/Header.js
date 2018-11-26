@@ -3,18 +3,29 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 class Header extends Component {
+  renderContent(){
+    switch(this.props.auth){
+      case null:
+        return;
+      case false:
+        return;
+      default:
+        return <a href="/auth/logout">Logout</a>
+    }
+  }
+
   render() {
     return (
-      <nav>
+      <nav className="blue-grey">
         <div className="nav-wrapper">
           <Link
             to={ '/' }
             className="brand-logo">
             Blog
           </Link>
-          <ul id="nav-mobile" className="right hide-on-med-and-down">
-
-          </ul>
+          <div className="right">
+            {this.renderContent()}
+          </div>
         </div>
       </nav>
     );
